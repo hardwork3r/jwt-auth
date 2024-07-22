@@ -1,0 +1,123 @@
+.basketList {
+    margin-top: 125px;
+    margin-left: 20px;
+    display: block;
+}
+
+.basketTitle {
+    font-size: 25px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.product {
+    display: flex;
+    background-color: white;
+    border: 3px solid black;
+    height: 80px;
+    width: 450px;
+    margin-bottom: 15px;
+}
+
+.productPreview {
+    width: 80px;
+    height: 80px;
+    border-right: 3px solid black;
+}
+
+.productPreview img {
+    height: 100%;
+    width: 80px;
+}
+
+.basketInfo {
+    display: block;
+    padding: 5px;
+    width: 200px;
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonDelete {
+    background-color: white;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border: solid black 3px;
+    margin-right: 20px;
+    height: 35px;
+}
+
+.buttonDelete:hover {
+    background-color: black;
+    color: white;
+}
+
+.payPanel {
+    font-size: 18px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 3px solid black;
+    height: 95px;
+    width: 250px;
+    left: 32.5%;
+    top: 24.8%;
+    display: block;
+    padding: 15px;
+}
+
+.total {
+    margin-bottom: 5px;
+}
+
+.finalPrice {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.quantityInfo {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.quantity {
+    margin-left: 10px;
+}
+
+.pay {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.pay:hover {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+.productInfo {
+    width: 100%;
+    height: 117px;
+}
+
+.productInfo div {
+    padding: 5px;
+}
+
+.emptyLabel {
+    position: absolute;
+    z-index: -1;
+    margin-left: 5px;
+}
