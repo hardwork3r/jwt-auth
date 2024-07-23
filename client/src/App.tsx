@@ -42,7 +42,6 @@ const App: FC = () => {
         return (
             <div>
                 <LoginForm onRegistButtonClick={handleRegistButtonClick} />
-                {/*<button onClick={getUsers}>Получить список пользователей</button>*/}
             </div>
         )
     }

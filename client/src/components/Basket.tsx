@@ -14,7 +14,7 @@ const Basket: FC = () => {
 
     useEffect(() => {
             fetchAndDisplayPurchases(store.user.email);
-    }, []);
+    }, [store]);
 
     const fetchAndDisplayPurchases = async (email: string) => {
         try {
@@ -85,7 +85,7 @@ const Basket: FC = () => {
                 {basketProducts.map((product) => (
                     <div key={product.name} className={styles.product}>
                         <div className={styles.productPreview}>
-                            <img src={product.preview} alt={product.name}/>
+                            <img src={product.preview} alt="Preview"/>
                         </div>
                         <div className={styles.basketInfo}>
                             <div>{product.name}</div>
