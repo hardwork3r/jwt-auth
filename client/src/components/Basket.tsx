@@ -14,7 +14,8 @@ const Basket: FC = () => {
 
     useEffect(() => {
             fetchAndDisplayPurchases(store.user.email);
-    }, [store]);
+            setTotalPrice(basketProducts.reduce((acc, product) => acc + product.price, 0));
+    }, [store, basketProducts]);
 
     const fetchAndDisplayPurchases = async (email: string) => {
         try {
@@ -71,11 +72,6 @@ const Basket: FC = () => {
             console.error('Error deleting products:', error);
         }
     }
-
-
-    useEffect(() => {
-        setTotalPrice(basketProducts.reduce((acc, product) => acc + product.price, 0));
-    }, [basketProducts]);
 
     return (
         <div>
