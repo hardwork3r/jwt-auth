@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {AuthResponse} from "../models/response/AuthResponse";
-import {IUser} from "../models/IUser";
 export const API_URL = 'http://localhost:5001/api';
 
 const $api = axios.create({

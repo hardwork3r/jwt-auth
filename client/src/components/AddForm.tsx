@@ -1,16 +1,13 @@
 import React, {FC, useContext, useState} from 'react';
-import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 import styles from './AddForm.module.css'
 import ProductService from "../services/ProductService";
-import {IProduct} from "../models/IProduct";
 
 const AddForm: FC = () => {
     const [name, setName] = useState<string>('');
     const [description, setDescription] = useState<string>('');
     const [priceString, setPrice] = useState<string>('');
     const [preview, setPreview] = useState<string>('');
-    const { store } = useContext(Context);
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -32,16 +29,13 @@ const AddForm: FC = () => {
             const price = Number(priceString);
             await ProductService.createProduct({ preview, name, description, price });
 
-            // Очистить поля формы после успешного добавления продукта
             setName('');
             setDescription('');
             setPrice('');
             setPreview('');
 
-            // Дополнительная логика после успешного добавления продукта, например, перенаправление на другую страницу
         } catch (error) {
             console.error('Ошибка при добавлении продукта:', error);
-            // Дополнительная обработка ошибки, например, отображение сообщения об ошибке
         }
     };
 

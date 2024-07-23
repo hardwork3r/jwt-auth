@@ -1,6 +1,5 @@
 import $api from '../http';
-import {Axios, AxiosResponse} from 'axios';
-import {AuthResponse} from "../models/response/AuthResponse";
+import {AxiosResponse} from 'axios';
 import {IPurchase} from "../models/IPurchase";
 
 export default class PurchaseService {
