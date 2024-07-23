@@ -22,7 +22,7 @@ const App: FC = () => {
         if(localStorage.getItem('token')) {
             store.checkAuth()
         }
-    }, []);
+    }, [store]);
 
     const handleRegistButtonClick = () => {
         setShowLoginForm(false);
@@ -32,15 +32,6 @@ const App: FC = () => {
     const handleLoginButtonClick = () => {
         setShowLoginForm(true);
         setShowRegistForm(false);
-    }
-
-    async function getUsers() {
-        try {
-            const response = await UserService.fetchUser()
-            setUsers(response.data)
-        } catch (e) {
-            console.log(e);
-        }
     }
 
     if (store.isLoading) {
