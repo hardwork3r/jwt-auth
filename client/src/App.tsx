@@ -9,12 +9,11 @@ import Profile from "./components/Profile";
 import {Context} from "./index";
 import {observer} from "mobx-react-lite";
 import {IUser} from "./models/IUser";
-import UserService from "./services/UserService";
 import styles from './App.module.css'
 
 const App: FC = () => {
     const {store} = useContext(Context)
-    const [users, setUsers] = useState<IUser[]>([])
+    const [users] = useState<IUser[]>([])
     const [showLoginForm, setShowLoginForm] = useState(true);
     const [showRegistForm, setShowRegistForm] = useState(false);
 
@@ -59,7 +58,7 @@ const App: FC = () => {
             <Router>
                 <header>
                     <div className={styles.image}>
-                        <img src={`${process.env.PUBLIC_URL}/global.png`} alt="My Image" />
+                        <img src={`${process.env.PUBLIC_URL}/global.png`} alt="Logotype" />
                     </div>
                     <h2>Market</h2>
                     <div className={styles.buttonContainer}>
