@@ -6,14 +6,13 @@ import AddForm from "./components/AddForm";
 import ShowProducts from "./components/ShowProducts";
 import Basket from "./components/Basket";
 import Profile from "./components/Profile";
+import Navigate from "./components/Navigate";
 import {Context} from "./index";
 import {observer} from "mobx-react-lite";
-import {IUser} from "./models/IUser";
 import styles from './App.module.css'
 
 const App: FC = () => {
     const {store} = useContext(Context)
-    const [users] = useState<IUser[]>([])
     const [showLoginForm, setShowLoginForm] = useState(true);
     const [showRegistForm, setShowRegistForm] = useState(false);
 
@@ -32,6 +31,24 @@ const App: FC = () => {
         setShowLoginForm(true);
         setShowRegistForm(false);
     }
+
+    const openNav = () => {
+        const sidenav = document.getElementById("mySidenav");
+        if (sidenav) {
+            sidenav.style.width = "180px";
+        } else {
+            console.error("Element with ID 'mySidenav' not found");
+        }
+    }
+
+    const closeNav = () => {
+        const sidenav = document.getElementById("mySidenav");
+        if (sidenav) {
+            sidenav.style.width = "0";
+        } else {
+            console.error("Element with ID 'mySidenav' not found");
+        }
+    };
 
     if (store.isLoading) {
         return <div>Загрузка...</div>
@@ -58,18 +75,18 @@ const App: FC = () => {
             <Router>
                 <header>
                     <div className={styles.image}>
-                        <img src={`${process.env.PUBLIC_URL}/global.png`} alt="Logotype" />
+                        <img src={`${process.env.PUBLIC_URL}/global.png`} alt="Logotype"/>
                     </div>
                     <h2>Market</h2>
-                    <div className={styles.buttonContainer}>
-                        <Link to={"/"} className={styles.links}>Продукты</Link>
-                        <Link to={"/profile"} className={styles.links}>Профиль</Link>
-                        <Link to={"/basket"} className={styles.buttonBasket}>Корзина</Link>
-                        <button className={styles.buttonLogout} onClick={() => store.logout()}>Выйти</button>
+                    <Navigate />
+                    <span onClick={() => openNav()}>&#9776;</span>
+                    <div id="mySidenav" className={styles.sidenav}>
+                        <a href="javascript:void(0)" className={styles.closebtn} onClick={() => closeNav()}>&times;</a>
+                        <Link to={"/"} onClick={() => closeNav()}>Продукты</Link>
+                        <Link to={"/profile"} onClick={() => closeNav()}>Профиль</Link>
+                        <Link to={"/basket"} onClick={() => closeNav()}>Корзина</Link>
+                        <button className={styles.logoutBtn} onClick={() => store.logout()}>Выйти</button>
                     </div>
-                    {users.map(user =>
-                        <div key={user.email}>{user.email}</div>
-                    )}
                 </header>
                 <Switch>
                     <Route exact path="/" component={ShowProducts}/>

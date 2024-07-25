@@ -6,13 +6,9 @@ body {
 }
 
 .formAuth {
-    position: absolute;
-    left: 40%;
-    right: 60%;
-    top: 30%;
+    margin-top: 225px;
     display: grid;
     place-items: center;
-    width: 300px;
 }
 
 .hideForm {
@@ -63,7 +59,7 @@ body {
     font-weight: bold;
     border: solid black 3px;
     margin: 5px;
-    width: 122px;
+    width: 124.5px;
     height: 30px;
     cursor: pointer;
 }
@@ -79,7 +75,7 @@ body {
     font-weight: bold;
     border: solid 3px;
     margin: 5px;
-    width: 122px;
+    width: 124.5px;
     height: 30px;
     cursor: pointer;
 }

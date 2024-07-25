@@ -1,3 +1,7 @@
+.basketContainer {
+    display: flex;
+}
+
 .basketList {
     margin-top: 125px;
     margin-left: 20px;
@@ -60,8 +64,10 @@
 }
 
 .payPanel {
+    margin-top: 183px;
+    margin-left: 20px;
+    margin-right: 20px;
     font-size: 18px;
-    position: absolute;
     background-color: #ffffff;
     border: 3px solid black;
     height: 95px;
@@ -120,4 +126,14 @@
     position: absolute;
     z-index: -1;
     margin-left: 5px;
+}
+
+@media (max-width: 800px) {
+    .basketContainer {
+        display: block;
+    }
+    .payPanel {
+        margin-top: 0px;
+        width: 420px;
+    }
 }

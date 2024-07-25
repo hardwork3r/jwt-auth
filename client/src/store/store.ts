@@ -35,8 +35,9 @@ export default class Store {
             localStorage.setItem("token", response.data.accessToken);
             this.setAuth(true)
             this.setUser(response.data.user);
-        } catch (e) {
-            console.log((e as any).response?.data?.message);
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
+            alert(e.response?.data?.message || 'Ошибка авторизации. Попробуйте еще раз.');
         }
     }
 
@@ -47,8 +48,9 @@ export default class Store {
             localStorage.setItem("token", response.data.accessToken);
             this.setAuth(true)
             this.setUser(response.data.user);
-        } catch (e) {
-            console.log((e as any).response?.data?.message);
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
+            alert(e.response?.data?.message || 'Ошибка регистрации. Попробуйте еще раз.');
         }
     }
 
@@ -59,8 +61,8 @@ export default class Store {
             localStorage.removeItem("token");
             this.setAuth(false)
             this.setUser({} as IUser);
-        } catch (e) {
-            console.log((e as any).response?.data?.message);
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
         }
     }
 
@@ -72,8 +74,8 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-        } catch (e) {
-            console.log((e as any).response?.data?.message);
+        } catch (e: any) {
+            console.log(e.response?.data?.message);
         } finally {
             this.setLoading(false);
         }

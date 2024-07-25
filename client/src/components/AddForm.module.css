@@ -1,10 +1,7 @@
 .addForm {
-    position: absolute;
     display: grid;
     place-items: center;
-    width: 300px;
-    left: 40%;
-    top: 20%;
+    margin-top: 150px;
 }
 
 .formTitle {

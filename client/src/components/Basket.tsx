@@ -13,9 +13,12 @@ const Basket: FC = () => {
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
     useEffect(() => {
-            fetchAndDisplayPurchases(store.user.email);
-            setTotalPrice(basketProducts.reduce((acc, product) => acc + product.price, 0));
-    }, [store, basketProducts]);
+        fetchAndDisplayPurchases(store.user.email);
+    }, [store.user.email]);
+
+    useEffect(() => {
+        setTotalPrice(basketProducts.reduce((acc, product) => acc + product.price, 0));
+    }, [basketProducts]);
 
     const fetchAndDisplayPurchases = async (email: string) => {
         try {
@@ -67,14 +70,14 @@ const Basket: FC = () => {
                 await PurchaseService.deletePurchase(email, product.name);
                 await ProductService.productPaid(product.name);
             }
-            setBasketProducts([]); // Очищаем корзину
+            setBasketProducts([]);
         } catch (error) {
             console.error('Error deleting products:', error);
         }
     }
 
     return (
-        <div>
+        <div className={styles.basketContainer}>
             <div className={styles.basketList}>
                 <div className={styles.basketTitle}>Корзина</div>
                 <h3 className={styles.emptyLabel}>Ваша корзина пуста.</h3>
