@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {AuthResponse} from "../models/response/AuthResponse";
-export const API_URL = 'https://jwt-auth-0rtq.onrender.com/api';
+export const API_URL = process.env.REACT_APP_API_URL;
 
 const $api = axios.create({
     withCredentials: true,
